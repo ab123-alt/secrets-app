@@ -14,10 +14,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // DB
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect("mongodb://localhost:27017/userDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+const userSchema = {
+    email: String,
+    password: String
+}
+
+const model = new mongoose.Model('User', userSchema);
 
 // http
 
